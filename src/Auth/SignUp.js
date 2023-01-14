@@ -34,10 +34,7 @@ function SignUp() {
     }
 
   }
-  // useEffect(()=>{
-  //   signupclick()
-  // },[])
-
+ 
   return (
     <div>
       <Navbar />
