@@ -47,10 +47,10 @@ function CustomerList() {
   return (
     <>
       <Navbar/>
-    <div className='container'>
+    <div className='container my-3'>
+
       <Link to="/form"><button className='btn btn-success'>Add Customer</button></Link>
 
-      
       <table className="table">   
         <thead>
           <tr>
@@ -63,12 +63,14 @@ function CustomerList() {
           </tr>
         </thead>
         <tbody >
+          
           {state.length === 0 && <div className="alert alert-primary" role="alert">
             A simple primary alert—check it out!
           </div>}
+
           {state &&
             state.map((e, i) => {
-              return (
+              return (    
                 
                 <tr key={i}>
                   <td>{e.name}</td>

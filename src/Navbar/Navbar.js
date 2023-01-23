@@ -2,6 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
+  let localstatus = localStorage.getItem("status")
+
+  let onlogout = ()=>{
+    localStorage.removeItem("status")
+  }
+
+  let onlogin = ()=>{
+
+  }
+
   return (
     <div>
       <nav className="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
@@ -21,7 +31,7 @@ function Navbar() {
        
       </ul>
       <form className="d-flex justify-content-between" role="search">
-        <Link to="/Login"><button className="btn btn-outline-success" type="submit">Login</button></Link>
+        <Link to="/Login"><button className="btn btn-outline-success mx-3" onClick={localstatus == 200 ? ()=>onlogout() : ()=> onlogin()} type="submit">{localstatus == 200 ? "Logout" : "Login"}</button></Link>
         <Link to="/Signup"><button className="btn btn-outline-success" type="submit">SignUp</button></Link>
       </form>
     </div>

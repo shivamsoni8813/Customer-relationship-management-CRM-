@@ -9,6 +9,7 @@ function SignUp() {
 
 
   let navigate = useNavigate()
+
   const signupclick = async(e) => {
     e.preventDefault()
 
@@ -22,13 +23,18 @@ function SignUp() {
     //   body: JSON.stringify(user)
     // }
     // ).then((res)=> console.log(res), navigate("/Login") ).catch((e)=>console.log(e))
+    
     try {
       
       let headres = {
         "Content-Type": "application/json"
       }
       let res = await axios.post("http://localhost:4000/api/user/signup",user,headres)
+      setTimeout(() => {
+        navigate('/Login')
+      }, 2000);
       console.log(res)
+      alert("you succesfully signedUp")
     } catch (error) {
      console.log(error) 
     }
@@ -53,7 +59,7 @@ function SignUp() {
         </div>
 
         <div className="col-12">
-          <button type="click" onClick={signupclick} className="btn btn-primary">Sign in</button>
+          <button type="click" onClick={signupclick} className="btn btn-primary">Sign up</button>
         </div>
       </form>
     </div>
