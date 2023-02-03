@@ -8,13 +8,13 @@ function CustomerForm() {
   let navigate = useNavigate();
 
   let [state, setstate] = useState({
-    name : "",
-    ceo : "",
-    employees : "",
-    turnover : "",
-    website : "",
-    year : "",
-
+    name: "",
+    ceo: "",
+    employees: "",
+    turnover: "",
+    website: "",
+    year: "",
+    status: ""
   });
 
   let { editcutomer } = useParams();
@@ -57,12 +57,12 @@ function CustomerForm() {
 
   const handleEdit = async () => {
     console.log("update", state);
-    let res = await axios.put(`http://localhost:4000/api/customer`, state );
+    let res = await axios.put(`http://localhost:4000/api/customer`, state);
     // console.log("updateted", state);
     navigate('/')
     // console.log(res);
     return res
-   
+
   };
 
   // useEffect(()=>{
@@ -71,7 +71,7 @@ function CustomerForm() {
   return (
     <div>
       <div className="forDetails">
-        <Navbar/>
+        <Navbar />
         <form className="row g-3">
           <h1 className="text-center my-4">Customer Details</h1>
           <div className="col-md-6">
@@ -115,7 +115,7 @@ function CustomerForm() {
               className="form-control"
               id="revenue"
               value={state.turnover}
-              onChange={(e) => {setstate({ ...state, turnover: e.target.value })}}
+              onChange={(e) => { setstate({ ...state, turnover: e.target.value }) }}
               placeholder="Enter Revenue"
             />
           </div>
@@ -128,7 +128,7 @@ function CustomerForm() {
               className="form-control"
               id="inputEmployee"
               value={state.employees}
-              onChange={(e) => {setstate({ ...state, employees: e.target.value })}}
+              onChange={(e) => { setstate({ ...state, employees: e.target.value }) }}
               placeholder="Enter Count Of Employees"
             />
           </div>
@@ -141,7 +141,7 @@ function CustomerForm() {
               className="form-control"
               id="inputCeo"
               value={state.ceo}
-              onChange={(e) => {setstate({ ...state, ceo: e.target.value })}}
+              onChange={(e) => { setstate({ ...state, ceo: e.target.value }) }}
               placeholder="enter CEO Name"
             />
           </div>
@@ -154,10 +154,19 @@ function CustomerForm() {
               className="form-control"
               id="establishYear"
               value={state.year}
-              onChange={(e) => {setstate({ ...state, year: e.target.value })}}
+              onChange={(e) => { setstate({ ...state, year: e.target.value }) }}
               placeholder="enter establish year"
             />
+
           </div>
+          <select className="form-select" aria-label="Default select example"
+          value={state.status} onChange={(e)=>setstate({...state, status:e.target.value})}
+          >
+            
+            <option>new</option>
+            <option >Accepted</option>
+            <option >Rejected</option>
+          </select>
 
           <div className="col-12 text-center">
             <button

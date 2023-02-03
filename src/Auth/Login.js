@@ -1,21 +1,20 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 
 function Login() {
 
   let [logUser, setLogUser] = useState({})
   
-  let navigate = useNavigate()
+
   const handleLogIn = async()=>{
     let url = "http://localhost:4000/api/user/signin"
     try {
       let res = await axios.post(url, logUser)
       console.log(res)
       localStorage.setItem("status", res.status)
-      navigate('/')
+      window.location.href = "/"
       
     } catch (error) {
       console.log(error)

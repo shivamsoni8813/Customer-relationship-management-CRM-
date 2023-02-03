@@ -1,8 +1,9 @@
 .table{
-    margin-top: 20px;
+    margin-top: 1.4rem;
     border: 1px solid black;
 }
 .alert{
-    width: 10vw;
+    width: 100vw;
     margin-left: 0%;
 }
+
