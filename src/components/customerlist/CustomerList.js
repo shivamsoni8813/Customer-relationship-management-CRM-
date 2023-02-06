@@ -25,6 +25,7 @@ function CustomerList() {
       let newAccept = data.records.filter((e) => e.status === "Accepted").length
 
       setState(data.records);
+      setFilterState(data.records);
       setcount({ newData, newAccept, newReject, alldata })
 
       let totalpages = Math.ceil(data.totalCount / 100)
@@ -43,7 +44,7 @@ function CustomerList() {
     navigate("/form/" + editcutomer);
   };
 
-  const deletebtn = async (delname) => {
+  const deletebtn = async(delname) => {
     try {
       let url = `http://localhost:4000/api/customer/:${delname}`;
       let { data } = await axios.delete(url, delname);
@@ -62,6 +63,7 @@ function CustomerList() {
 
       let result = state.filter(c => c.name.includes(e))
       setFilterState([...result])
+      console.log(filterstate)
     }
   }
 
@@ -125,8 +127,8 @@ function CustomerList() {
             <tbody>
 
 
-              {state &&
-                state.map((e, i) => {
+              {filterstate &&
+                filterstate.map((e, i) => {
                   return (
                     <tr key={i}>
                       <td>{e.name}</td>
@@ -143,8 +145,8 @@ function CustomerList() {
 
                       <td>
                         <i
-                          onClick={() => EditBtn(e.name)}
-                          className="cursor-pointer fa-solid fa-pen-to-square"
+                          onClick={() => EditBtn(e._id)}
+                          className="cursor-pointer fa-solid fa-pen-to-square mx-2"
                         ></i>
                         <i
                           onClick={() => deletebtn(e.name)}
