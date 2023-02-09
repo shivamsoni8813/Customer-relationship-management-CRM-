@@ -7,6 +7,8 @@ import SignUp from '../../Auth/SignUp'
 import SecuredRoute from '../../Utility/SecuredRoute'
 import User from '../Users/User'
 import AddingNewUsers from '../Users/AddingNewUsers'
+import Ticket from '../Ticket/Ticket'
+import TicketForm from '../Ticket/TicketForm'
 
 function AppRoutes() {
 
@@ -18,6 +20,9 @@ function AppRoutes() {
         <Route path='/form/:editcutomer' element ={<CustomerForm/>} ></Route>
         <Route path='/Login' element = {<Login/>}></Route>
         <Route path='/user' element = {<SecuredRoute><User/></SecuredRoute>}></Route>
+        <Route path='/Ticket' element={<SecuredRoute><Ticket/></SecuredRoute>}></Route>
+        <Route path='/TicketForm' element ={<SecuredRoute><TicketForm/></SecuredRoute>}></Route>
+        <Route path='/TicketForm/:desc' element ={<SecuredRoute><TicketForm/></SecuredRoute>}></Route>
         {/* <Route path='/Signup' element = {<SignUp/>}></Route> */}
         <Route path='/newUserForm' element={<AddingNewUsers/>}></Route>
       </Routes>

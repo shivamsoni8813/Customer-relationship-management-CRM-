@@ -28,6 +28,9 @@ function Navbar() {
         <Link to="/user">
           <li className="nav-link active" aria-current="page">Users</li>
         </Link>
+        <Link to='/Ticket'>
+          <li className="nav-link active" aria-current="page">Customer Ticket</li>
+        </Link>
       </ul>
       <form className="d-flex justify-content-between" role="search">
         <Link to="/Login"><button className="btn btn-outline-success mx-3" onClick={localstatus == 200 ? ()=>onlogout() : ()=> onlogin()} type="submit">{localstatus == 200 ? "Logout" : "Login"}</button></Link>

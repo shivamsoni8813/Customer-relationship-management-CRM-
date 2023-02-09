@@ -46,8 +46,8 @@ function CustomerList() {
 
   const deletebtn = async(delname) => {
     try {
-      let url = `http://localhost:4000/api/customer/:${delname}`;
-      let { data } = await axios.delete(url, delname);
+      let url = `http://localhost:4000/api/customer/${delname}`;
+      let { data } = await axios.delete(url);
       setState(data);
       setFilterState(data)
     } catch (error) {
@@ -61,11 +61,13 @@ function CustomerList() {
       setFilterState(state)
     } else {
 
-      let result = state.filter(c => c.name.includes(e))
+      let result = state.filter(c => c.name.toUpperCase().includes(e.toUpperCase()))
       setFilterState([...result])
       console.log(filterstate)
     }
   }
+
+  
 
   let selectPage = (selected) => {
     console.log(selected)
@@ -145,7 +147,7 @@ function CustomerList() {
 
                       <td>
                         <i
-                          onClick={() => EditBtn(e._id)}
+                          onClick={() => EditBtn(e.name)}
                           className="cursor-pointer fa-solid fa-pen-to-square mx-2"
                         ></i>
                         <i

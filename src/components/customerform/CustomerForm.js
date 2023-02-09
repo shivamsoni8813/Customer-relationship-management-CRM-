@@ -12,13 +12,12 @@ function CustomerForm() {
     ceo: "",
     employees: "",
     turnover: "",
-    website: "",
     year: "",
     status: ""
   });
 
   let { editcutomer } = useParams();
-  // console.log(editcutomer)
+  console.log(editcutomer)
 
   useEffect(() => {
     if (editcutomer) {
@@ -29,13 +28,10 @@ function CustomerForm() {
       //     }
       // })
       let getcutomers = async () => {
-        let { data } = await axios.get("http://localhost:4000/api/customer");
-        let findsamedata = data.find((el) => {
-          return el.name === editcutomer;
-        });
-        if (findsamedata) {
-          setstate(findsamedata);
-        }
+        let { data } = await axios.get(`http://localhost:4000/api/customer/${editcutomer}`);
+        setstate(data)
+        console.log(data)
+        
       };
       getcutomers();
     }
@@ -58,7 +54,7 @@ function CustomerForm() {
   const handleEdit = async () => {
     console.log("update", state);
     let res = await axios.put(`http://localhost:4000/api/customer`, state);
-    // console.log("updateted", state);
+    console.log("updateted", state);
     navigate('/')
     // console.log(res);
     return res
@@ -94,7 +90,7 @@ function CustomerForm() {
               WebSite
             </label>
 
-            <input
+            {/* <input
               type="text"
               className="form-control"
               id="inputWeb"
@@ -103,7 +99,7 @@ function CustomerForm() {
                 setstate({ ...state, website: e.target.value });
               }}
               placeholder="enter your WebSite"
-            />
+            /> */}
           </div>
           <div className="col-12">
             <label htmlFor="Revenue" className="form-label">
