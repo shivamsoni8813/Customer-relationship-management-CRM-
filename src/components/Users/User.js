@@ -47,7 +47,7 @@ function User() {
         <div className='usercontainer'>
             <Navbar/>
             <div className="userTable mx-5">
-                <Link to="/newUserForm"><button className='btn btn-success my-3 mx-2'>Add New User</button></Link>
+                <Link to="/newUserForm"><button className='btn btn-success my-3' >Add New User</button></Link>
                 <div className="table-responsive-sm">
                     <table className="table">
                         <thead>

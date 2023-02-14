@@ -13,17 +13,18 @@ function CustomerList() {
   let [count, setcount] = useState({});
   let [page, setpage] = useState(1)
   let [total, settotal] = useState()
-
+  
+  console.log(filterstate)
   let apiCall = async () => {
     try {
       let api = `http://localhost:4000/api/customer/page/${page}`;
       let { data } = await axios.get(api);
-
-      let alldata = data.totalCount
+      
+      let alldata = data.totalCount;
       let newData = data.records.filter((e) => e.status === "New").length
       let newReject = data.records.filter((e) => e.status === "Rejected").length
       let newAccept = data.records.filter((e) => e.status === "Accepted").length
-
+      
       setState(data.records);
       setFilterState(data.records);
       setcount({ newData, newAccept, newReject, alldata })
@@ -107,9 +108,9 @@ function CustomerList() {
         </Link>
 
 
-        <form className="d-flex my-3" role="search">
-          <input className="form-control me-2" style={{ width: "15rem" }} type="search" onInput={(e) => { handleSearch(e.target.value) }} placeholder="Search" aria-label="Search" />
-          <button className="btn btn-outline-success" type="button">Search</button>
+        <form className="d-flex align-item-center my-3 searchForm" role="search">
+          <input className="form-control " style={{ width: "18rem" }} type="search" onInput={(e) => { handleSearch(e.target.value) }} placeholder="Search" aria-label="Search" />
+          <span><i className="searchIcon fa-solid fa-magnifying-glass"></i></span>
         </form>
 
 

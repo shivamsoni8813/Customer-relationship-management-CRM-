@@ -70,7 +70,7 @@ function CustomerForm() {
         <Navbar />
         <form className="row g-3">
           <h1 className="text-center my-4">Customer Details</h1>
-          <div className="col-md-6">
+          <div className="col-12">
             <label htmlFor="inputname" className="form-label">
               Name
             </label>
@@ -85,22 +85,7 @@ function CustomerForm() {
               required
             />
           </div>
-          <div className="col-md-6">
-            <label htmlFor="inputweb" className="form-label">
-              WebSite
-            </label>
-
-            {/* <input
-              type="text"
-              className="form-control"
-              id="inputWeb"
-              value={state.website}
-              onChange={(e) => {
-                setstate({ ...state, website: e.target.value });
-              }}
-              placeholder="enter your WebSite"
-            /> */}
-          </div>
+         
           <div className="col-12">
             <label htmlFor="Revenue" className="form-label">
               Revenue
