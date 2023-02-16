@@ -16,7 +16,7 @@ function AddingNewUsers() {
 
     let newuserAdding = async()=>{
         try {
-            let url = "http://localhost:4000/api/user/signup"
+            let url = process.env.REACT_APP_APPURL+"user/signup"
             let res = await axios.post(url,userObj)
             console.log(userObj)
             navigate("/user")
@@ -50,7 +50,10 @@ function AddingNewUsers() {
                                 Active
                             </label>
                         </div>
-                        <button type="button" onClick={()=>newuserAdding()} className="btn btn-outline-success">AddUser</button>
+                        <div className="btn-container text-center">
+                        <button type="button" onClick={()=>newuserAdding()} className="btn btn-outline-success " style={{width:"10rem"}} >AddUser</button>
+                        </div>
+                            
                     </div>
                 </div>
             </div>

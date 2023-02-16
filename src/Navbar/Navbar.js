@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import  {useState} from 'react';
 import {Sidebar} from 'primereact/sidebar';
 import {Button} from 'primereact/button';
+import "./Navbar.css"
 function Navbar() {
   const [visible, setVisible] = useState(false);
 
@@ -42,14 +43,14 @@ function Navbar() {
     
 
 
-      <div className="card flex justify-content-center">
+      <div className="card flex justify-content-center my-5 mx-3 fixed-top " style={{width:"3rem"}}>
         <Sidebar visible={visible} onHide={() => setVisible(false)}>
           <h2>Sidebar</h2>
-         <ul>
+         <ul className='menuBar'>
          <Link className="navbar-brand" to={localstatus == 200 ? "/" : "/Login"}>CRM</Link>
          <Link className="nav-link active" aria-current="page" to={localstatus == 200 ? "/" : "/Login"}>CustomerList</Link>
          <Link to="/user">
-                <li className="nav-link active" aria-current="page">Users</li>
+                <li className="nav-link" aria-current="page">Users</li>
               </Link>
               <Link to='/Ticket'>
                 <li className="nav-link active" aria-current="page">Customer Ticket</li>

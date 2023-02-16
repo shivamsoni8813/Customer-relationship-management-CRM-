@@ -17,7 +17,7 @@ function CustomerList() {
   console.log(filterstate)
   let apiCall = async () => {
     try {
-      let api = `http://localhost:4000/api/customer/page/${page}`;
+      let api = process.env.REACT_APP_APPURL+`customer/page/${page}`;
       let { data } = await axios.get(api);
       
       let alldata = data.totalCount;
@@ -47,7 +47,7 @@ function CustomerList() {
 
   const deletebtn = async(delname) => {
     try {
-      let url = `http://localhost:4000/api/customer/${delname}`;
+      let url = process.env.REACT_APP_APPURL+`customer/${delname}`;
       let { data } = await axios.delete(url);
       setState(data);
       setFilterState(data)
@@ -167,7 +167,7 @@ function CustomerList() {
         {
           state.length > 0 &&
 
-          <nav aria-label="Page navigation example">
+          <nav aria-label="Page navigation example text-center">
             <ul className="pagination">
               {
                 <li className="page-item"
@@ -177,12 +177,12 @@ function CustomerList() {
               {
                 total.map((_, i) => {
                   return (
-                    <li className="page-item" key={i}><button onClick={() => selectPage(i + 1)} className="btn btn-primary mx-2">{i + 1}</button></li>
+                    <li className="page-item " key={i}><button onClick={() => selectPage(i + 1)} className="btn btn-primary mx-2">{i + 1}</button></li>
                   )
                 })
               }
 
-              <li className="page-item"><button className="btn btn-primary" disabled={page === total.length} onClick={() => nextClick()}>Next</button></li>
+              <li className="page-item d-flex justify-content-between"><button className="btn btn-primary" disabled={page === total.length} onClick={() => nextClick()}>Next</button></li>
             </ul>
           </nav>
         }

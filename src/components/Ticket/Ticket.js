@@ -15,7 +15,7 @@ function Ticket() {
 
   let ticketApi = async () => {
     try {
-      let url = "http://localhost:4000/api/ticket"
+      let url = process.env.REACT_APP_APPURL+"ticket"
       let { data } = await axios.get(url)
       setCustomerTicket(data)
       setFilterdCustomerTicket(data)
@@ -66,7 +66,7 @@ function Ticket() {
           <button className='btn btn-danger my-3'>NewTicket</button>
         </Link>
         <form className="d-flex align-item-center my-3 searchForm" role="search">
-          <input className="form-control " style={{ width: "18rem" }} type="search" onInput={(e) => { handleTicketSearch(e.target.value) }} placeholder="Search" aria-label="Search" />
+          <input className="form-control " style={{ width: "18rem" }} type="search" onInput={(e) => { handleTicketSearch(e.target.value) }} placeholder="Search for customer..." aria-label="Search" />
           <span><i className="searchIcon fa-solid fa-magnifying-glass"></i></span>
         </form>
         <div class="table-responsive">

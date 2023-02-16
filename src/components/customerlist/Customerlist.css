@@ -10,8 +10,7 @@
 .searchForm{
     margin-left: 9rem;
 }
-.searchIcon
-{
+.searchIcon{
     font-size: 1.5rem;
     text-align: center;
     padding-top: 0.7rem;
@@ -22,7 +21,9 @@
     border-radius: 50%;
     cursor: pointer;
 }
+
 .searchIcon:hover{
     background-color: black;
     color: white;
 }
+

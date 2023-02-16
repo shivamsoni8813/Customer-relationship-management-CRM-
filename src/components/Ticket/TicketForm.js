@@ -22,7 +22,7 @@ function TicketForm() {
 
     let raiseTicket = async () => {
         try {
-            let url = `http://localhost:4000/api/ticket`
+            let url = process.env.REACT_APP_APPURL+`ticket`
             let { data } = desc ? await axios.put(url, ticketState) : await axios.post(url, ticketState)
             console.log(data)
             navigate("/Ticket")
@@ -37,7 +37,7 @@ function TicketForm() {
 
     let fetchCustomer = async () => {
         try {
-            let url = `http://localhost:4000/api/customer`
+            let url = process.env.REACT_APP_APPURL+`customer`
             let { data } = await axios.get(url)
             setcustomer(data)
         }
@@ -49,7 +49,7 @@ function TicketForm() {
 
     let fetchuser = async () => {
         try {
-            let url = `http://localhost:4000/api/user`
+            let url = process.env.REACT_APP_APPURL+`user`
             let { data } = await axios.get(url)
             console.log("user", data)
             setUser(data)
@@ -67,7 +67,7 @@ function TicketForm() {
 
             let editQuery = async () => {
                 try {
-                    let url = `http://localhost:4000/api/ticket/${desc}`
+                    let url = process.env.REACT_APP_APPURL+`ticket/${desc}`
                     let { data } = await axios.get(url)
                     console.log("fire")
                     setTicketState(data)

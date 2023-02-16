@@ -11,7 +11,7 @@ function User() {
 
     let getUsers = async () => {
         try {
-            let url = "http://localhost:4000/api/user"
+            let url = process.env.REACT_APP_APPURL+"user"
             let { data } = await axios.get(url)
             setNewUser(data)
             console.log(data)
@@ -25,7 +25,7 @@ function User() {
 
     let deactiveBtn = async(username)=>{
         try {
-            let res = await axios.put(`http://localhost:4000/api/user/activate/${username}`)
+            let res = await axios.put(process.env.REACT_APP_APPURL+`user/activate/${username}`)
             setNewUser(res.data)
         } catch (error) {
             console.log(error)
@@ -35,7 +35,7 @@ function User() {
     let activateBtn = async(username)=>{
         // console.log(el)
         try {
-             let res = await axios.put(`http://localhost:4000/api/user/deActivate/${username}`)
+             let res = await axios.put(process.env.REACT_APP_APPURL+`user/deActivate/${username}`)
              setNewUser(res.data)
         } catch (error) {
              console.log(error)

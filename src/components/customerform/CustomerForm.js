@@ -28,7 +28,7 @@ function CustomerForm() {
       //     }
       // })
       let getcutomers = async () => {
-        let { data } = await axios.get(`http://localhost:4000/api/customer/${editcutomer}`);
+        let { data } = await axios.get(process.env.REACT_APP_APPURL+`customer/${editcutomer}`);
         setstate(data)
         console.log(data)
         
@@ -39,7 +39,7 @@ function CustomerForm() {
 
   const handleClick = async () => {
     try {
-      let baseUrl = "http://localhost:4000/api/customer";
+      let baseUrl = process.env.REACT_APP_APPURL+"customer";
       let header = {
         "content/type": "application/json",
       };
@@ -53,7 +53,7 @@ function CustomerForm() {
 
   const handleEdit = async () => {
     console.log("update", state);
-    let res = await axios.put(`http://localhost:4000/api/customer`, state);
+    let res = await axios.put(process.env.REACT_APP_APPURL+`customer`, state);
     console.log("updateted", state);
     navigate('/')
     // console.log(res);
