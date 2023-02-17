@@ -24,7 +24,7 @@ function Login() {
   return (
   
   <div>
-      <Navbar/>
+      {/* <Navbar/> */}
       <form>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
