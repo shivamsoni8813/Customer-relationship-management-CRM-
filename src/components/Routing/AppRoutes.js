@@ -18,7 +18,7 @@ function AppRoutes() {
         <Route path='/' element ={<SecuredRoute> <CustomerList/> </SecuredRoute>}  ></Route>
         <Route path='/form' element ={<SecuredRoute> <CustomerForm/> </SecuredRoute>} ></Route>
         <Route path='/form/:editcutomer' element ={<SecuredRoute><CustomerForm/></SecuredRoute>} ></Route>
-        <Route path='/Login' element = {<SecuredRoute><Login/></SecuredRoute>}></Route>
+        <Route path='/Login' element = {<Login/>}></Route>
         <Route path='/user' element = {<SecuredRoute><User/></SecuredRoute>}></Route>
         <Route path='/Ticket' element={<SecuredRoute><Ticket/></SecuredRoute>}></Route>
         <Route path='/TicketForm' element ={<SecuredRoute><TicketForm/></SecuredRoute>}></Route>
