@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import './Login.css'
 import Navbar from "../Navbar/Navbar";
 
 function Login() {
@@ -23,10 +24,16 @@ function Login() {
 
   return (
   
-  <div>
-      {/* <Navbar/> */}
+  <div >
+    <div className="heading text-center my-4">
+
+      <h1>Customer Relationship Management</h1>
+    </div>
       <form>
-        <div className="mb-3">
+        <div className="container">
+      <h3>Please Login</h3>
+
+        <div className="col-6 ">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
           </label>
@@ -36,10 +43,10 @@ function Login() {
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             onChange={(e)=>setLogUser({...logUser, email: e.target.value})}
-          />
+            />
           
         </div>
-        <div className="mb-3">
+        <div className="col-6 ">
           <label htmlFor="exampleInputPassword1" className="form-label">
             Password
           </label>
@@ -48,13 +55,14 @@ function Login() {
             className="form-control"
             id="exampleInputPassword1"
             onChange={(e)=>setLogUser({...logUser, password: e.target.value})}
-
+            
           />
         </div>
         
-        <button type="button" onClick={()=>handleLogIn()} className="btn btn-primary">
+        <button type="button" onClick={()=>handleLogIn()} className="btn btn-primary my-3">
           login
         </button>
+            </div>
       </form>
     </div>
   );
