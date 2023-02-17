@@ -89,29 +89,31 @@ function TicketForm() {
 
                 <div className="row my-5">
                     <label htmlFor="AssigndTo">Customer:</label>
-                    <div className="col my-3">
+                    <div className="col my-2">
                     
                         <Dropdown disabled={desc} value={customer.find(e=> e.name == ticketState.customer)} onChange={(e) => {setTicketState({...ticketState, customer : e.value.name })}} options={customer} optionLabel="name" placeholder="Select a customer"
                             filter className="w-full md:w-14rem" />
                     </div>
 
                         <label htmlFor="AssigndTo">AssignTo:</label>
-                    <div className="col-md-12 my-3">
+                    <div className="col-md-12 my-2">
                         <Dropdown value={user.find(e=>e.name== ticketState.assignedTo)} onChange={(e) => setTicketState({ ...ticketState, assignedTo: e.value.name })} options={user} optionLabel="name" placeholder=" AssignedTo"
                             filter className="w-full md:w-14rem" />
                     </div>
 
-                    <div className="col-md-12 my-3">
+                        <label htmlFor="Date">Date:</label>
+                    <div className="col-md-6 my-2">
                         <input type="date" readOnly={desc} className="form-control" value={ticketState.raisedOn} onChange={(e) => setTicketState({ ...ticketState, raisedOn: e.target.value })} aria-label="Last name" />
                     </div>
 
-                    <div className="col-md-12 my-3">
+                        <label htmlFor="Issue">Issue:</label>
+                    <div className="col-md-6 my-2">
                         <input type="text" className="form-control" value={ticketState.desc} onChange={(e) => setTicketState({ ...ticketState, desc: e.target.value })} placeholder="Description" aria-label="Last name" />
                     </div>
 
-                    <div className="input-group mb-3">
-                        <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
-                        <select className="form-select" defaultValue={ticketState.status} onChange={(e) => setTicketState({ ...ticketState, status: e.target.value })} id="inputGroupSelect01">
+                    <div className="input-group my-3">
+                        <label className="input-group-text" htmlFor="inputGroupSelect01">Status</label>
+                        <select className="form-select col-md-6" defaultValue={ticketState.status} onChange={(e) => setTicketState({ ...ticketState, status: e.target.value })} id="inputGroupSelect01">
 
                             <option selected={"choose"} >Choose</option>
                             <option selected={"New" === ticketState.status} defaultValue="New">New</option>

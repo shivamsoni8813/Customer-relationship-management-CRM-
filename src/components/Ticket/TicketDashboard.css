@@ -16,6 +16,11 @@
     color: white;
     font-size: 1.8rem;
 }
+.tile-Assigned{
+    background-color: yellow;
+    color: white;
+    font-size: 1.8rem;
+}
 .tile-all{
     background-color: black;
     color: white;

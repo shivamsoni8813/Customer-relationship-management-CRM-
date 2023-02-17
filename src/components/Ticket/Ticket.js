@@ -66,8 +66,8 @@ function Ticket() {
           <button className='btn btn-danger my-3'>NewTicket</button>
         </Link>
         <form className="d-flex align-item-center my-3 searchForm" role="search">
-          <input className="form-control " style={{ width: "18rem" }} type="search" onInput={(e) => { handleTicketSearch(e.target.value) }} placeholder="Search for customer..." aria-label="Search" />
-          <span><i className="searchIcon fa-solid fa-magnifying-glass"></i></span>
+          <input className="form-control" style={{ width: "18rem" }} type="search" onInput={(e) => { handleTicketSearch(e.target.value) }} placeholder="Search for customer..." aria-label="Search" />
+          <span className=' searchspan text-center'><i className="searchIcon fa-solid fa-magnifying-glass"></i></span>
         </form>
         <div class="table-responsive">
 
@@ -94,7 +94,7 @@ function Ticket() {
                         <td>{e.assignedTo}</td>
                         <td>{e.raisedOn}</td>
                         <td>{e.desc}</td>
-                        <td className={e.status =="New"? "bg-primary":e.status=="Resolved"? "bg-success":e.status=="In Progress"?"bg-warning":e.status=="Assigned"?"bg-danger":""} >{e.status}</td>
+                        <td className={e.status =="New"? "bg-primary":e.status=="Resolved"? "bg-success":e.status=="In Progress"?"bg-danger":e.status=="Assigned"?"bg-warning":""} >{e.status}</td>
                         <td><i className="fa-solid fa-pen-to-square" onClick={() => editableClick(e.desc)}></i></td>
                       </tr>
 
